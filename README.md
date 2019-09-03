@@ -15,7 +15,7 @@ execute setup_frigate script to create first images
 reload automations
 ```
 
-for lavelace swiper card:
+for lovelace swiper card use config:
 
       - type: 'custom:swipe-card'
         cards:
