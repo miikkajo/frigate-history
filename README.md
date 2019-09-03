@@ -1,6 +1,7 @@
 # frigate-history
 package for homeassistant to provide history for detections
 
+information about packages https://www.home-assistant.io/docs/configuration/packages/
 
 example for creating history for frigate detections
 
