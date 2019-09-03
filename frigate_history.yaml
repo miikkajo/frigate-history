@@ -26,7 +26,7 @@ automation:
 
   alias: create_history 
   trigger:
-  - entity_id: binary_sensor.etuovi_person
+  - entity_id: binary_sensor.cam1_person
     from: 'off'
     platform: state
     to: 'on'
