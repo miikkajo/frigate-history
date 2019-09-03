@@ -18,6 +18,7 @@ reload automations
 for lovelace swiper card use config:
 
       - type: 'custom:swipe-card'
+        start_card: 5
         cards:
           - type: picture-entity
             entity: camera.cam1_history1
