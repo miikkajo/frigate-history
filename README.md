@@ -14,3 +14,18 @@ restart homeassistant
 execute setup_frigate script to create first images
 reload automations
 ```
+
+for lavelace swiper card:
+
+      - type: 'custom:swipe-card'
+        cards:
+          - type: picture-entity
+            entity: camera.cam1_history1
+          - type: picture-entity
+            entity: camera.cam1_history2
+          - type: picture-entity
+            entity: camera.cam1_history3
+          - type: picture-entity
+            entity: camera.cam1_history4
+          - type: picture-entity
+            entity: camera.cam1_history5            
