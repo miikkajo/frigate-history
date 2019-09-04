@@ -1,6 +1,6 @@
 homeassistant:
   whitelist_external_dirs:
-    - /tmp
+    - /config/www
 
 camera:
   - platform: mjpeg
@@ -8,19 +8,19 @@ camera:
     mjpeg_url: !secret frigate_cam_url 
   - platform: local_file
     name: cam1_history1
-    file_path: /tmp/cam1_image1.jpg    
+    file_path: /config/www/cam1_image1.jpg    
   - platform: local_file
     name: cam1_history2
-    file_path: /tmp/cam1_image2.jpg    
+    file_path: /config/www/cam1_image2.jpg    
   - platform: local_file
     name: cam1_history3
-    file_path: /tmp/cam1_image3.jpg    
+    file_path: /config/www/cam1_image3.jpg    
   - platform: local_file
     name: cam1_history4
-    file_path: /tmp/cam1_image4.jpg    
+    file_path: /config/www/cam1_image4.jpg    
   - platform: local_file
     name: cam1_history5
-    file_path: /tmp/cam1_image5.jpg
+    file_path: /config/www/cam1_image5.jpg
 
 automation:
 
@@ -33,23 +33,23 @@ automation:
   action:
   - data:
       entity_id: camera.cam1_history2
-      filename: /tmp/cam1_image1.jpg
+      filename: /config/www/cam1_image1.jpg
     service: camera.snapshot
   - data:
       entity_id: camera.cam1_history3
-      filename: /tmp/cam1_image2.jpg
+      filename: /config/www/cam1_image2.jpg
     service: camera.snapshot
   - data:
       entity_id: camera.cam1_history4 
-      filename: /tmp/cam1_image3.jpg
+      filename: /config/www/cam1_image3.jpg
     service: camera.snapshot
   - data:
       entity_id: camera.cam1_history5
-      filename: /tmp/cam1_image4.jpg
+      filename: /config/www/cam1_image4.jpg
     service: camera.snapshot
   - data:
       entity_id: camera.cam1         
-      filename: /tmp/cam1_image5.jpg
+      filename: /config/www/cam1_image5.jpg
     service: camera.snapshot
     
 script:
@@ -57,21 +57,21 @@ script:
     sequence:
       - data:
           entity_id: camera.cam1         
-          filename: /tmp/cam1_image5.jpg
+          filename: /config/www/cam1_image5.jpg
         service: camera.snapshot
       - data:
           entity_id: camera.cam1         
-          filename: /tmp/cam1_image4.jpg
+          filename: /config/www/cam1_image4.jpg
         service: camera.snapshot
       - data:
           entity_id: camera.cam1         
-          filename: /tmp/cam1_image3.jpg
+          filename: /config/www/cam1_image3.jpg
         service: camera.snapshot
       - data:
           entity_id: camera.cam1         
-          filename: /tmp/cam1_image2.jpg
+          filename: /config/www/cam1_image2.jpg
         service: camera.snapshot
       - data:
           entity_id: camera.cam1         
-          filename: /tmp/cam1_image1.jpg
+          filename: /config/www/cam1_image1.jpg
         service: camera.snapshot
