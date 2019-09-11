@@ -1,0 +1,74 @@
+homeassistant:
+  whitelist_external_dirs:
+    - /config/www
+
+camera:
+  - name: cam1
+    platform: mqtt
+    topic: !secret frigate_cam1_topic
+  - platform: local_file
+    name: cam1_history1
+    file_path: /config/www/cam1_image1.jpg    
+  - platform: local_file
+    name: cam1_history2
+    file_path: /config/www/cam1_image2.jpg    
+  - platform: local_file
+    name: cam1_history3
+    file_path: /config/www/cam1_image3.jpg    
+  - platform: local_file
+    name: cam1_history4
+    file_path: /config/www/cam1_image4.jpg    
+  - platform: local_file
+    name: cam1_history5
+    file_path: /config/www/cam1_image5.jpg
+
+automation:
+  alias: create_history 
+  trigger:
+  - platform: mqtt
+    topic: !secret frigate_cam1_topic
+  action:
+  - data:
+      entity_id: camera.cam1_history2
+      filename: /config/www/cam1_image1.jpg
+    service: camera.snapshot
+  - data:
+      entity_id: camera.cam1_history3
+      filename: /config/www/cam1_image2.jpg
+    service: camera.snapshot
+  - data:
+      entity_id: camera.cam1_history4 
+      filename: /config/www/cam1_image3.jpg
+    service: camera.snapshot
+  - data:
+      entity_id: camera.cam1_history5
+      filename: /config/www/cam1_image4.jpg
+    service: camera.snapshot
+  - data:
+      entity_id: camera.cam1         
+      filename: /config/www/cam1_image5.jpg
+    service: camera.snapshot
+    
+script:
+  setup_frigate_history:
+    sequence:
+      - data:
+          entity_id: camera.cam1         
+          filename: /config/www/cam1_image5.jpg
+        service: camera.snapshot
+      - data:
+          entity_id: camera.cam1         
+          filename: /config/www/cam1_image4.jpg
+        service: camera.snapshot
+      - data:
+          entity_id: camera.cam1         
+          filename: /config/www/cam1_image3.jpg
+        service: camera.snapshot
+      - data:
+          entity_id: camera.cam1         
+          filename: /config/www/cam1_image2.jpg
+        service: camera.snapshot
+      - data:
+          entity_id: camera.cam1         
+          filename: /config/www/cam1_image1.jpg
+        service: camera.snapshot
