@@ -5,7 +5,7 @@ homeassistant:
 camera:
   - name: cam1
     platform: mqtt
-    topic: !secret frigate_cam1_topic
+    topic: !secret frigate_cam_topic
   - platform: local_file
     name: cam1_history1
     file_path: /config/www/cam1_image1.jpg    
@@ -26,7 +26,7 @@ automation:
   alias: create_history 
   trigger:
   - platform: mqtt
-    topic: !secret frigate_cam1_topic
+    topic: !secret frigate_cam_topic
   action:
   - data:
       entity_id: camera.cam1_history2
