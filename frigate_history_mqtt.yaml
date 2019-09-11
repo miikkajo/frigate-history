@@ -27,6 +27,7 @@ automation:
   trigger:
   - platform: mqtt
     topic: !secret frigate_cam_topic
+    encoding: ''
   action:
   - data:
       entity_id: camera.cam1_history2
