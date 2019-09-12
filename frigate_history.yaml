@@ -5,7 +5,7 @@ homeassistant:
 camera:
   - platform: mjpeg
     name: cam1
-    mjpeg_url: !secret frigate_cam_url 
+    mjpeg_url: !secret frigate_cam1_url 
   - platform: local_file
     name: cam1_history1
     file_path: /config/www/cam1_image1.jpg    
@@ -24,7 +24,7 @@ camera:
 
 automation:
 
-  alias: create_history 
+  alias: create_cam1_history 
   trigger:
   - entity_id: binary_sensor.cam1_person
     from: 'off'
@@ -33,7 +33,7 @@ automation:
   action:
   action:
   - data:
-      entity_id: automation.create_history
+      entity_id: automation.create_cam1_history
     service: automation.turn_off
   - data:
       entity_id: camera.cam1_history2
@@ -58,29 +58,5 @@ automation:
   - delay:
     seconds: 30
   - data:
-      entity_id: automation.create_history
+      entity_id: automation.create_cam1_history
     service: automation.turn_on
-    
-script:
-  setup_frigate_history:
-    sequence:
-      - data:
-          entity_id: camera.cam1         
-          filename: /config/www/cam1_image5.jpg
-        service: camera.snapshot
-      - data:
-          entity_id: camera.cam1         
-          filename: /config/www/cam1_image4.jpg
-        service: camera.snapshot
-      - data:
-          entity_id: camera.cam1         
-          filename: /config/www/cam1_image3.jpg
-        service: camera.snapshot
-      - data:
-          entity_id: camera.cam1         
-          filename: /config/www/cam1_image2.jpg
-        service: camera.snapshot
-      - data:
-          entity_id: camera.cam1         
-          filename: /config/www/cam1_image1.jpg
-        service: camera.snapshot
