@@ -7,20 +7,17 @@ example for creating history for frigate detections
 
 ```
 add frigate url to secrets.yaml:
-frigate_cam_url: http://192.168.0.1:5000/cam1
+frigate_cam1_url: http://192.168.0.1:5000/cam1
 
 if using MQTT version:
 
 add frigate topic to secrets.yaml:
-frigate_cam_topic: frigate/[camera_name]/snapshot
+frigate_cam1_topic: frigate/[camera_name]/snapshot
 
 
-insert frigate_history.yaml or frigate_history_mqtt.yaml to packages directory on homeassistant (create if missing)
+insert frigate_history.yaml or frigate_history_mqtt.yaml to packages directory on homeassistant (create directory if missing)
 restart homeassistant 
-execute setup_frigate script to create first images
-reload automations
 ```
-
 for lovelace swiper card use config:
 
       - type: 'custom:swipe-card'
