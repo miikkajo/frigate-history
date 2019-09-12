@@ -30,6 +30,9 @@ automation:
     encoding: ''
   action:
   - data:
+      entity_id: automation.create_history
+    service: automation.turn_off
+  - data:
       entity_id: camera.cam1_history2
       filename: /config/www/cam1_image1.jpg
     service: camera.snapshot
@@ -49,6 +52,11 @@ automation:
       entity_id: camera.cam1         
       filename: /config/www/cam1_image5.jpg
     service: camera.snapshot
+  - delay:
+    seconds: 30
+  - data:
+      entity_id: automation.create_history
+    service: automation.turn_on
     
 script:
   setup_frigate_history:
