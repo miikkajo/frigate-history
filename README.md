@@ -16,7 +16,8 @@ add frigate topic to secrets.yaml:
 frigate_cam1_topic: frigate/[camera_name]/snapshot
 
 
-insert frigate_history.yaml or frigate_history_mqtt.yaml to packages directory on homeassistant (create directory if missing)
+copy frigate_history.yaml or frigate_history_mqtt.yaml to packages directory on homeassistant (create directory if missing)
+copy frigate_history.sh to config directory
 restart homeassistant 
 ```
 
