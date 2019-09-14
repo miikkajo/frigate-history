@@ -1,0 +1,104 @@
+camera:
+  - name: cam1
+    platform: mqtt
+    topic: !secret frigate_cam_topic
+  - platform: local_file
+    name: cam1_history1
+    file_path: /config/www/cam1/1.jpg       
+  - platform: local_file
+    name: cam1_history2
+    file_path: /config/www/cam1/2.jpg        
+  - platform: local_file
+    name: cam1_history3
+    file_path: /config/www/cam1/3.jpg       
+  - platform: local_file
+    name: cam1_history4
+    file_path: /config/www/cam1/4.jpg       
+  - platform: local_file
+    name: cam1_history5
+    file_path: /config/www/cam1/5.jpg       
+  - platform: local_file
+    name: cam1_history6
+    file_path: /config/www/cam1/6.jpg       
+  - platform: local_file
+    name: cam1_history7
+    file_path: /config/www/cam1/7.jpg       
+  - platform: local_file
+    name: cam1_history8
+    file_path: /config/www/cam1/8.jpg       
+  - platform: local_file
+    name: cam1_history9
+    file_path: /config/www/cam1/9.jpg       
+  - platform: local_file
+    name: cam1_history10
+    file_path: /config/www/cam1/10.jpg           
+
+  - name: cam2
+    platform: mqtt
+    topic: !secret frigate_cam2_topic
+  - platform: local_file
+    name: cam2_history1
+    file_path: /config/www/cam2/1.jpg       
+  - platform: local_file
+    name: cam2_history2
+    file_path: /config/www/cam2/2.jpg        
+  - platform: local_file
+    name: cam2_history3
+    file_path: /config/www/cam2/3.jpg       
+  - platform: local_file
+    name: cam2_history4
+    file_path: /config/www/cam2/4.jpg       
+  - platform: local_file
+    name: cam2_history5
+    file_path: /config/www/cam2/5.jpg       
+  - platform: local_file
+    name: cam2_history6
+    file_path: /config/www/cam2/6.jpg       
+  - platform: local_file
+    name: cam2_history7
+    file_path: /config/www/cam2/7.jpg       
+  - platform: local_file
+    name: cam2_history8
+    file_path: /config/www/cam2/8.jpg       
+  - platform: local_file
+    name: cam2_history9
+    file_path: /config/www/cam2/9.jpg       
+  - platform: local_file
+    name: cam2_history10
+    file_path: /config/www/cam2/10.jpg           
+    
+automation:
+  - alias: cam1_history 
+    trigger:
+    - platform: mqtt
+      topic: !secret frigate_cam_topic
+      encoding: ''
+    action:
+    - service: camera.snapshot
+      data:
+        entity_id: camera.cam1
+        filename: /config/www/cam1/latest.jpg
+    - service: shell_command.roll_frigate_history
+      data_template:
+        url: /config/www/cam1 
+        history_size: 10
+
+  - alias: cam2_history 
+    trigger:
+    - platform: mqtt
+      topic: !secret frigate_cam2_topic
+      encoding: ''
+    action:
+    - service: camera.snapshot
+      data:
+        entity_id: camera.cam2
+        filename: /config/www/cam2/latest.jpg
+    - service: shell_command.roll_frigate_history
+      data_template:
+        url: /config/www/cam2
+        history_size: 10
+
+
+# SYNTAX frigate_history.sh IMAGEPATH HISTORY_SIZE
+shell_command:
+  roll_frigate_history: 'bash /config/frigate_history.sh {{ url }} {{history_size}}'
