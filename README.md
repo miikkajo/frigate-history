@@ -1,5 +1,6 @@
-# frigate-history
-package for homeassistant to provide history for detections
+# frigate-history version n+1
+
+package for homeassistant to provide history of detected persons
 
 information about packages https://www.home-assistant.io/docs/configuration/packages/
 
@@ -18,18 +19,62 @@ frigate_cam1_topic: frigate/[camera_name]/snapshot
 insert frigate_history.yaml or frigate_history_mqtt.yaml to packages directory on homeassistant (create directory if missing)
 restart homeassistant 
 ```
+
 for lovelace swiper card use config:
 
-      - type: 'custom:swipe-card'
-        start_card: 5
-        cards:
-          - type: picture-entity
-            entity: camera.cam1_history1
-          - type: picture-entity
-            entity: camera.cam1_history2
-          - type: picture-entity
-            entity: camera.cam1_history3
-          - type: picture-entity
-            entity: camera.cam1_history4
-          - type: picture-entity
-            entity: camera.cam1_history5            
+resources:
+  - type: module
+    url: >-
+      https://cdn.jsdelivr.net/gh/bramkragten/custom-ui@master/swipe-card/swipe-card.js
+title: History
+views:
+  - badges: []
+    cards:
+      - cards:
+          - entity: camera.cam1_history1
+            type: picture-entity
+          - entity: camera.cam1_history2
+            type: picture-entity
+          - entity: camera.cam1_history3
+            type: picture-entity
+          - entity: camera.cam1_history4
+            type: picture-entity
+          - entity: camera.cam1_history5
+            type: picture-entity
+          - entity: camera.cam1_history6
+            type: picture-entity
+          - entity: camera.cam1_history7
+            type: picture-entity
+          - entity: camera.cam1_history8
+            type: picture-entity
+          - entity: camera.cam1_history9
+            type: picture-entity
+          - entity: camera.cam1_history10
+            type: picture-entity
+        start_card: 10
+        tap_action: none
+        type: 'custom:swipe-card'
+      - cards:
+          - entity: camera.cam2_history1
+            type: picture-entity
+          - entity: camera.cam2_history2
+            type: picture-entity
+          - entity: camera.cam2_history3
+            type: picture-entity
+          - entity: camera.cam2_history4
+            type: picture-entity
+          - entity: camera.cam2_history5
+            type: picture-entity
+          - entity: camera.cam2_history6
+            type: picture-entity
+          - entity: camera.cam2_history7
+            type: picture-entity
+          - entity: camera.cam2_history8
+            type: picture-entity
+          - entity: camera.cam2_history9
+            type: picture-entity
+          - entity: camera.cam2_history10
+            type: picture-entity
+        start_card: 10
+        tap_action: none
+        type: 'custom:swipe-card'
