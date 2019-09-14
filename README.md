@@ -15,6 +15,9 @@ if using MQTT version:
 add frigate topic to secrets.yaml:
 frigate_cam1_topic: frigate/[camera_name]/snapshot
 
+In automation adjust trigger accordingly, in example i'm using mqtt topic to trigger automation
+if not using MQTT, you may want to trigger on binary_sensor of person detected
+
 
 copy frigate_history.yaml or frigate_history_mqtt.yaml to packages directory on homeassistant (create directory if missing)
 copy frigate_history.sh to config directory
