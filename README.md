@@ -37,49 +37,67 @@ views:
       - cards:
           - entity: camera.cam1_history1
             type: picture-entity
+            tap_action: none
           - entity: camera.cam1_history2
             type: picture-entity
+            tap_action: none
           - entity: camera.cam1_history3
             type: picture-entity
+            tap_action: none
           - entity: camera.cam1_history4
             type: picture-entity
+            tap_action: none
           - entity: camera.cam1_history5
             type: picture-entity
+            tap_action: none
           - entity: camera.cam1_history6
             type: picture-entity
+            tap_action: none
           - entity: camera.cam1_history7
             type: picture-entity
+            tap_action: none
           - entity: camera.cam1_history8
             type: picture-entity
+            tap_action: none
           - entity: camera.cam1_history9
             type: picture-entity
+            tap_action: none
           - entity: camera.cam1_history10
             type: picture-entity
+            tap_action: none
         start_card: 10
-        tap_action: none
         type: 'custom:swipe-card'
       - cards:
           - entity: camera.cam2_history1
             type: picture-entity
+            tap_action: none
           - entity: camera.cam2_history2
             type: picture-entity
+            tap_action: none
           - entity: camera.cam2_history3
             type: picture-entity
+            tap_action: none
           - entity: camera.cam2_history4
             type: picture-entity
+            tap_action: none
           - entity: camera.cam2_history5
             type: picture-entity
+            tap_action: none
           - entity: camera.cam2_history6
             type: picture-entity
+            tap_action: none
           - entity: camera.cam2_history7
             type: picture-entity
+            tap_action: none
           - entity: camera.cam2_history8
             type: picture-entity
+            tap_action: none
           - entity: camera.cam2_history9
             type: picture-entity
+            tap_action: none
           - entity: camera.cam2_history10
             type: picture-entity
+            tap_action: none
         start_card: 10
-        tap_action: none
         type: 'custom:swipe-card'
 ```
