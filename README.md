@@ -22,7 +22,7 @@ restart homeassistant
 ```
 
 for lovelace swiper card use config:
-
+```
 resources:
   - type: module
     url: >-
@@ -79,3 +79,4 @@ views:
         start_card: 10
         tap_action: none
         type: 'custom:swipe-card'
+```
